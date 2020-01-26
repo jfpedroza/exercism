@@ -3,10 +3,11 @@ pub fn verse(n: u32) -> String {
 }
 
 pub fn sing(start: u32, end: u32) -> String {
-    let mut verses: Vec<_> = (end..=start).map(verse).collect();
-    verses.reverse();
-
-    verses.join("\n")
+    (end..=start)
+        .rev()
+        .map(verse)
+        .collect::<Vec<_>>()
+        .join("\n")
 }
 
 fn first_sentence(n: u32) -> String {
